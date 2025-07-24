@@ -7,7 +7,7 @@ function filterBy(movies, { query }) {
   let filteredMovies = [...movies];
 
   if (query) {
-    filteredMovies = filteredMovies.filter (
+    filteredMovies = filteredMovies.filter(
       movie =>
         movie.title.toLowerCase().includes(query.toLowerCase().trim()) ||
         movie.description.toLowerCase().includes(query.toLowerCase().trim()),
@@ -18,7 +18,7 @@ function filterBy(movies, { query }) {
 }
 
 export const App = () => {
-  const [query, setQueryBy] = useState('');
+  const [query, setQuery] = useState('');
   const movies = filterBy(moviesFromServer, { query });
 
   return (
@@ -38,7 +38,7 @@ export const App = () => {
                 className="input"
                 placeholder="Type search word"
                 onChange={event => {
-                  setQueryBy(event.currentTarget.value);
+                  setQuery(event.currentTarget.value);
                 }}
               />
             </div>
